@@ -29,5 +29,3 @@ class Review(models.model):
     def __str__(self):
         return f"REVIEW OF '{self.project.title}' BY '{self.user_name}'"
 
-    def __str__(self):
-        return f"PROJECT TITLE - '{self.title}'"
