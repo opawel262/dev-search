@@ -1,1 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Projects</h1>
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Votes</th>
+        <th>Ratio</th>
+        
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td>{{project.id}}</td>
+        <td><a href="{% url 'projects:single_project' project.id %}">{{project.title}}</a></td>
+        <td>{{project.votes}}</td>
+        <td>{{project.ratio}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
