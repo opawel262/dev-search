@@ -6,16 +6,19 @@
     <tr>
         <th>ID</th>
         <th>Project</th>
-        <th>Votes</th>
-        <th>Ratio</th>
+        <th>Date</th>
+
         
     </tr>
     {% for project in projects %}
     <tr>
         <td>{{project.id}}</td>
-        <td><a href="{% url 'projects:single_project' project.id %}">{{project.title}}</a></td>
-        <td>{{project.votes}}</td>
-        <td>{{project.ratio}}</td>
+        <td><a >{{project.title}}</a></td>
+        <td>{{project.created_at}}</td>
+        <td><a target="_blank" href="{% url 'projects:single_project' project.id %}">View  </a></td>
+        <td><a target="_blank" href="">Add </a></td>
+        <td><a target="_blank" href="">Edit </a></td>
+        <td><a target="_blank" href="">Delete        </a></td>
     </tr>
     {% endfor %}
 </table>
