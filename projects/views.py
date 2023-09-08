@@ -41,10 +41,11 @@ def update_project(request, pk: UUID):
         if form.is_valid():
             form.save()
             return redirect('projects:projects')
+
     context = {
         'form': form
     }
-    return render(request, 'projects/update_project.html', context)
+    return render(request, 'projects/create_project.html', context)
 
 
 def delete_project(request, pk: UUID):
@@ -54,11 +55,11 @@ def delete_project(request, pk: UUID):
     if request.method == 'POST':
         project.delete()
         return redirect('projects:projects')
-    context = {
-        'form': form
-    }
-    return render(request, 'projects/delete_project.html', context)
     
+    context = {
+        'project': project
+    }    
+    return render(request, 'projects/confirm_del_project.html', context)
     
     
     
