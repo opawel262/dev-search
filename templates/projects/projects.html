@@ -16,9 +16,9 @@
         <td><a >{{project.title}}</a></td>
         <td>{{project.created_at}}</td>
         <td><a target="_blank" href="{% url 'projects:single_project' project.id %}">View  </a></td>
-        <td><a target="_blank" href="">Add </a></td>
-        <td><a target="_blank" href="">Edit </a></td>
-        <td><a target="_blank" href="">Delete        </a></td>
+        <td><a target="_blank" href="{% url 'projects:create_project' %}">Add </a></td>
+        <td><a target="_blank" href="{% url 'projects:update_project' project.id %}">Edit </a></td>
+        <td><a target="_blank" href="{% url 'projects:delete_project' project.id %}">Delete        </a></td>
     </tr>
     {% endfor %}
 </table>
