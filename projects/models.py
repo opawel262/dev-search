@@ -19,6 +19,7 @@ class Project(models.Model):
     source_code = models.URLField(max_length=200, null=True, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    project_image = models.ImageField(null=True, blank=True, default="default.jpg")
     
     def __str__(self):
         return f"PROJECT TITLE - '{self.title}'"

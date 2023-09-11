@@ -4,6 +4,7 @@ from uuid import UUID
 from .forms import ProjectForm
 # Create your views here.
 
+
 def projects(request):
     projects = Project.objects.all()
     context = {'projects': projects}
@@ -21,7 +22,7 @@ def create_project(request):
     form = ProjectForm()
     
     if request.method == 'POST':
-        form = ProjectForm(request.POST)
+        form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('projects:projects')
@@ -29,6 +30,7 @@ def create_project(request):
     context = {
         'form': form
     }
+
     return render(request, 'projects/create_project.html', context)
     
 
@@ -37,7 +39,7 @@ def update_project(request, pk: UUID):
     form = ProjectForm(instance=project)
     
     if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=project)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
             return redirect('projects:projects')

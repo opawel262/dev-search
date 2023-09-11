@@ -11,6 +11,9 @@
 {% if project.source_code %}
     <a href="{{project.source_code}}">Source Link</a>
 {% endif %}
+{% if project.project_image %}
+    <img src="{{project.project_image.url}}" alt="project image">
+{% endif %}
 {% for tag in project.tags.all %}
 <table>
     <td style="border: 1px; ">{{tag.name}}</td>
